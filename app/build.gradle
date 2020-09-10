@@ -12,8 +12,15 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+    }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    signingConfigs {
+        release {
+            storeFile file("mapk.jks")
+            storePassword "sed-mapk"
+            keyAlias "mapk-release"
+            keyPassword "sed-mapk-release"
+        }
     }
 
     buildTypes {

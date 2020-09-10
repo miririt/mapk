@@ -14,13 +14,13 @@ open class RMMVClient(private val context: Context) :
 
     companion object {
         val ASSET_INJECT = arrayOf( // inject asset file "as is"
-            "plugins/Irina_PerformanceUpgrade.js",
-            "plugins/Cheat_Menu.js",
-            "plugins/Cheat_Menu.css",
-            "hodgef/keyboard.css",
-            "fonts/nanumbarunpenR.eot",
-            "fonts/nanumbarunpenR.woff",
-            "fonts/nanumbarunpenR.woff2"
+            "mapk/plugins/Irina_PerformanceUpgrade.js",
+            "mapk/plugins/Cheat_Menu.js",
+            "mapk/plugins/Cheat_Menu.css",
+            "mapk/hodgef/keyboard.css",
+            "mapk/fonts/nanumbarunpenR.eot",
+            "mapk/fonts/nanumbarunpenR.woff",
+            "mapk/fonts/nanumbarunpenR.woff2"
         )
 
         val DEFAULT_HEADERS = HashMap<String, String>()
