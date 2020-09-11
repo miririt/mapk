@@ -62,7 +62,53 @@
                 return encodeURI(url.slice(0, url.lastIndexOf(ext) - 1)) + encryptedExt
             }
         };
-    } catch(e) { alert(e.stack); }
+    } catch(e) {
+        try {
+
+            WebAudio.prototype._load = function(url) {
+                if (WebAudio._context) {
+                    var xhr = new XMLHttpRequest();
+
+                    try {
+                        decodeURI(url);
+                        xhr.open('GET', url);
+                    } catch(e) {
+                        xhr.open('GET', encodeURI(url));
+                    }
+
+                    xhr.open('GET', url);
+                    xhr.responseType = 'arraybuffer';
+                    xhr.onload = function() {
+                        if (xhr.status < 400) {
+                            this._onXhrLoad(xhr);
+                        }
+                    }.bind(this);
+                    xhr.onerror = function() {
+                        this._hasError = true;
+                    }.bind(this);
+                    xhr.send();
+                }
+            };
+            
+            Bitmap.load = function(url) {
+                var bitmap = Object.create(Bitmap.prototype);
+                bitmap._defer = true;
+                bitmap.initialize();
+            
+                bitmap._decodeAfterRequest = true;
+
+                try {
+                    decodeURI(url);
+                    bitmap._requestImage(url);
+                } catch(e) {
+                    bitmap._requestImage(encodeURI(url));
+                }
+            
+                return bitmap;
+            };
+
+        } catch(e2) { alert(e.stack, e2.stack); }
+    }
 
     try {
         SceneManager.onError = SceneManager.catchException = function(e) {
