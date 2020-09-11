@@ -75,7 +75,6 @@
                         xhr.open('GET', encodeURI(url));
                     }
 
-                    xhr.open('GET', url);
                     xhr.responseType = 'arraybuffer';
                     xhr.onload = function() {
                         if (xhr.status < 400) {

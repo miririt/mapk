@@ -33,4 +33,18 @@ class MainActivity : AppCompatActivity() {
 
         webView.loadUrl("https://appassets.androidplatform.net/assets/www/index.html")
     }
+
+    override fun onPause() {
+        webView.evaluateJavascript("WebAudio._context.suspend();", null)
+        webView.onPause()
+        webView.pauseTimers()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        webView.resumeTimers()
+        webView.onResume()
+        webView.evaluateJavascript("WebAudio._context.resume();", null)
+    }
 }
