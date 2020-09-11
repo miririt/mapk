@@ -57,7 +57,7 @@
             try {
                 var uriCheck = url.slice(0, url.lastIndexOf(ext) - 1) + encryptedExt;
                 decodeURI(uriCheck);
-                return uriCheck;
+                return decodeURI(uriCheck);
             } catch(e) {
                 return encodeURI(url.slice(0, url.lastIndexOf(ext) - 1)) + encryptedExt
             }
@@ -70,8 +70,7 @@
                     var xhr = new XMLHttpRequest();
 
                     try {
-                        decodeURI(url);
-                        xhr.open('GET', url);
+                        xhr.open('GET', decodeURI(url));
                     } catch(e) {
                         xhr.open('GET', encodeURI(url));
                     }
@@ -98,8 +97,7 @@
                 bitmap._decodeAfterRequest = true;
 
                 try {
-                    decodeURI(url);
-                    bitmap._requestImage(url);
+                    bitmap._requestImage(decodeURI(url));
                 } catch(e) {
                     bitmap._requestImage(encodeURI(url));
                 }
