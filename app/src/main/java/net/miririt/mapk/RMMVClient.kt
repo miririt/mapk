@@ -71,7 +71,7 @@ open class RMMVClient(private val context: Context) :
                                          request: WebResourceRequest
     ) : WebResourceResponse? {
 
-        val path = request.url.path!!.replace("https://appassets.androidplatform.net/assets/", "")
+        val path = request.url.path!!.replace("https://appassets.androidplatform.net/assets", "")
 
         // Inject assets
         ASSET_INJECT.find{ item -> path.endsWith(item) }?.let {
@@ -79,7 +79,7 @@ open class RMMVClient(private val context: Context) :
         }
 
         // Inject main.js
-        if(path == "/assets/js/rpg_core.js") {
+        if(path.endsWith("/js/rpg_core.js")) {
             return streamResponse(
                 path,
                 concatStream(
@@ -90,7 +90,7 @@ open class RMMVClient(private val context: Context) :
         }
 
         // Inject main.js
-        if(path == "/assets/js/main.js") {
+        if(path.endsWith("/js/main.js")) {
             return streamResponse(
                 path,
                 concatStream(
