@@ -15,7 +15,7 @@ window.toggleOnTop = function() {
     let toggleBtn = document.querySelector('#toggle-keyboard');
     toggleBtn.style.marginTop = '1%';
     toggleBtn.style.marginBottom = 'auto';
-}
+};
 
 (function() {
 

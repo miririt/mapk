@@ -14,14 +14,14 @@ open class RMMVClient(private val context: Context) :
 
     companion object {
         val ASSET_INJECT = arrayOf( // inject asset file "as is"
-            "mapk/plugins/Irina_PerformanceUpgrade.js",
-            "mapk/plugins/Cheat_Menu.js",
-            "mapk/plugins/Cheat_Menu.css",
-            "mapk/hodgef/keyboard.js",
-            "mapk/hodgef/keyboard.css",
-            "mapk/fonts/nanumbarunpenR.eot",
-            "mapk/fonts/nanumbarunpenR.woff",
-            "mapk/fonts/nanumbarunpenR.woff2"
+            "/plugins/Irina_PerformanceUpgrade.js",
+            "/plugins/Cheat_Menu.js",
+            "/plugins/Cheat_Menu.css",
+            "/hodgef/keyboard.js",
+            "/hodgef/keyboard.css",
+            "/fonts/nanumbarunpenR.eot",
+            "/fonts/nanumbarunpenR.woff",
+            "/fonts/nanumbarunpenR.woff2"
         )
 
         val DEFAULT_HEADERS = HashMap<String, String>()
@@ -78,7 +78,7 @@ open class RMMVClient(private val context: Context) :
 
         // Inject assets
         ASSET_INJECT.find{ item -> path.endsWith(item) }?.let {
-            return streamResponse(path, context.assets?.open(it))
+            return streamResponse(path, context.assets?.open("mapk$it"))
         }
 
         // Inject main.js
@@ -87,8 +87,7 @@ open class RMMVClient(private val context: Context) :
                 path,
                 concatStream(
                     context.assets?.open("mapk/compat.js"),
-                    context.assets?.open("www/js/rpg_core.js"),
-                    stringStream("SceneManager.exit = () => {};")
+                    context.assets?.open("www/js/rpg_core.js")
                 )
             )
         }
