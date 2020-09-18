@@ -82,13 +82,24 @@ open class RMMVClient(private val context: Context) :
         }
 
         // Inject main.js
-        if(path == "/js/main.js") {
+        if(path == "/js/rpg_core.js") {
             return streamResponse(
                 path,
                 concatStream(
                     context.assets?.open("mapk/compat.js"),
+                    context.assets?.open("www/js/rpg_core.js"),
+                    stringStream("SceneManager.exit = () => {};")
+                )
+            )
+        }
+
+        // Inject main.js
+        if(path == "/js/main.js") {
+            return streamResponse(
+                path,
+                concatStream(
                     context.assets?.open("mapk/rmmv.js"),
-                    context.assets?.open("mapk/www/js/main.js"),
+                    context.assets?.open("www/js/main.js"),
                     stringStream("SceneManager.exit = () => {};")
                 )
             )
