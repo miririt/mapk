@@ -23,7 +23,3 @@ function injectIrina() {
 function injectCheatMenu() {
     injectScript('Cheat_Menu');
 }
-
-    function injectKeyboard() {
-    injectScript('hodgef/keyboard');
-}

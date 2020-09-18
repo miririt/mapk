@@ -338,8 +338,13 @@ class Buffer extends String {
         'chromium': "85.0.4183.83"
     };
 
-    window.process = _NJSProcess
-    function nw() { }
+    function _NJSOS() { }
+    _NJSOS.EOL = '\n';
+    _NJSOS.constants = {};
+    _NJSOS.homedir = () => '/';
+
+    window.process = _NJSProcess;
+    window.nw = function() { };
 
     nw.Clipboard = function() { };
     nw.Clipboard.ClipboardInstance = function() { };
@@ -361,6 +366,8 @@ class Buffer extends String {
     nw.Window.y = 0;
     nw.Window.width = 2560;
     nw.Window.height = 1440;
+    nw.Window.title = "";
+    nw.Window.menu = null;
     nw.Window.isAlwaysOnTop = () => false;
     nw.Window.isFullscreen = () => true;
     nw.Window.isTransparent = () => false;
@@ -386,16 +393,23 @@ class Buffer extends String {
     nw.Window.setShadow = (shadow) => { };
     nw.Window.showDevTools = (iframe, callback) => { };
     nw.Window.closeDevTools = () => { };
+    nw.Window.setMaximumSize = (width, height) => { };
+    nw.Window.setMinimumSize = (width, height) => { };
+    nw.Window.setResizable = (resizable) => { };
+    nw.Window.setAlwaysOnTop = (top) => { };
+    nw.Window.setPosition = (position) => { };
+    nw.Window.requestAttention = (attension) => { };
     nw.Window.capturePage = (callback, config) => { };
     nw.Window.captureScreenshot = (options, callback) => { };
-    nw.Window.eval = (frame, script) => { eval(script); };
+    nw.Window.eval = (frame, script) => { return eval(script); };
     nw.Window.on = (type, listener) => { window.addEventListener(type, listener); };
     nw.Window.open = (url, options, callback) => { callback(window.open(url)); };
 
     let __njsinterface_list = {
         'path': _NJSPath,
         'fs': _NJSFileSystem,
-        'process': _NJSProcess
+        'process': _NJSProcess,
+        'os': _NJSOS
     };
     let __nwinterface_list = {
         'nw.gui': nw

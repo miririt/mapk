@@ -33,6 +33,7 @@ fun afterWebView(context: Context, view: WebView) {
     val jsFeature = loadAsset(context, "mapk/feature.js")
     val jsInject = loadAsset(context, "mapk/inject.js")
     val jsSimpleCheat = loadAsset(context, "mapk/cheat.js")
+    val jsSimpleKeyboard = loadAsset(context, "mapk/hodgef/keyboard.js")
 
     view.evaluateJavascript(jsFeature) {
         view.evaluateJavascript("pluginFix();", null)
@@ -40,10 +41,15 @@ fun afterWebView(context: Context, view: WebView) {
         view.evaluateJavascript("ignoreError();", null)
     }
 
-    // Apply Additional plugin injectorv
+    // Apply Additional plugin injector
     view.evaluateJavascript(jsInject) {
         view.evaluateJavascript("injectCheatMenu();", null)
         view.evaluateJavascript("injectKeyboard();", null)
+        view.evaluateJavascript("toggleOnTop();", null)
+    }
+	
+	// Apply virtual keyboard
+    view.evaluateJavascript(jsSimpleKeyboard) {
         view.evaluateJavascript("toggleOnTop();", null)
     }
 

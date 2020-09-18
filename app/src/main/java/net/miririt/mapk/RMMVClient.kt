@@ -17,6 +17,7 @@ open class RMMVClient(private val context: Context) :
             "mapk/plugins/Irina_PerformanceUpgrade.js",
             "mapk/plugins/Cheat_Menu.js",
             "mapk/plugins/Cheat_Menu.css",
+            "mapk/hodgef/keyboard.js",
             "mapk/hodgef/keyboard.css",
             "mapk/fonts/nanumbarunpenR.eot",
             "mapk/fonts/nanumbarunpenR.woff",
