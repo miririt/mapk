@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         webView = findViewById(R.id.webView)
 
+		WebView.setWebContentsDebuggingEnabled(true)
         webView.isSoundEffectsEnabled = true
         webView.settings.blockNetworkImage = false
         webView.settings.blockNetworkLoads = false

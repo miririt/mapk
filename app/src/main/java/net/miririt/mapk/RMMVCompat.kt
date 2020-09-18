@@ -44,12 +44,7 @@ fun afterWebView(context: Context, view: WebView) {
     // Apply Additional plugin injector
     view.evaluateJavascript(jsInject) {
         view.evaluateJavascript("injectCheatMenu();", null)
-        view.evaluateJavascript("toggleOnTop();", null)
-    }
-	
-	// Apply virtual keyboard
-    view.evaluateJavascript(jsSimpleKeyboard) {
-        view.evaluateJavascript("toggleOnTop();", null)
+        view.evaluateJavascript("injectKeyboard(true);", null)
     }
 
     // Apply Back key menu

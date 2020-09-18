@@ -17,8 +17,8 @@ open class RMMVClient(private val context: Context) :
             "/plugins/Irina_PerformanceUpgrade.js",
             "/plugins/Cheat_Menu.js",
             "/plugins/Cheat_Menu.css",
-            "/hodgef/keyboard.js",
-            "/hodgef/keyboard.css"
+            "/plugins/hodgef/keyboard.js",
+            "/plugins/hodgef/keyboard.css"
         )
 
         val DEFAULT_HEADERS = HashMap<String, String>()
@@ -83,7 +83,7 @@ open class RMMVClient(private val context: Context) :
             return streamResponse(
                 path,
                 concatStream(
-                    context.assets?.open("mapk/compat.js"),
+                    context.assets?.open("mapk/nwjs.js"),
                     context.assets?.open("www/js/rpg_core.js")
                 )
             )
