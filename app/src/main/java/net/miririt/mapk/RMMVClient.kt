@@ -18,10 +18,7 @@ open class RMMVClient(private val context: Context) :
             "/plugins/Cheat_Menu.js",
             "/plugins/Cheat_Menu.css",
             "/hodgef/keyboard.js",
-            "/hodgef/keyboard.css",
-            "/fonts/nanumbarunpenR.eot",
-            "/fonts/nanumbarunpenR.woff",
-            "/fonts/nanumbarunpenR.woff2"
+            "/hodgef/keyboard.css"
         )
 
         val DEFAULT_HEADERS = HashMap<String, String>()
@@ -82,7 +79,7 @@ open class RMMVClient(private val context: Context) :
         }
 
         // Inject main.js
-        if(path == "/js/rpg_core.js") {
+        if(path == "/assets/js/rpg_core.js") {
             return streamResponse(
                 path,
                 concatStream(
@@ -93,7 +90,7 @@ open class RMMVClient(private val context: Context) :
         }
 
         // Inject main.js
-        if(path == "/js/main.js") {
+        if(path == "/assets/js/main.js") {
             return streamResponse(
                 path,
                 concatStream(

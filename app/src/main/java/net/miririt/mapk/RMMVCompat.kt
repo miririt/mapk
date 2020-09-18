@@ -44,7 +44,6 @@ fun afterWebView(context: Context, view: WebView) {
     // Apply Additional plugin injector
     view.evaluateJavascript(jsInject) {
         view.evaluateJavascript("injectCheatMenu();", null)
-        view.evaluateJavascript("injectKeyboard();", null)
         view.evaluateJavascript("toggleOnTop();", null)
     }
 	
