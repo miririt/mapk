@@ -28,7 +28,7 @@ fun makeWebViewCompatible(context: Context, view: WebView) {
 }
 
 fun afterWebView(context: Context, view: WebView) {
-    if(!view.url?.contains("localhost")!!) return
+    if(!view.url?.contains("appassets.androidplatform.net")!!) return
 
     val jsFeature = loadAsset(context, "mapk/feature.js")
     val jsInject = loadAsset(context, "mapk/inject.js")
