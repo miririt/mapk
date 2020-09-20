@@ -33,11 +33,10 @@ fun afterWebView(context: Context, view: WebView) {
     val jsFeature = loadAsset(context, "mapk/feature.js")
     val jsInject = loadAsset(context, "mapk/inject.js")
     val jsSimpleCheat = loadAsset(context, "mapk/cheat.js")
-    val jsSimpleKeyboard = loadAsset(context, "mapk/hodgef/keyboard.js")
 
     view.evaluateJavascript(jsFeature) {
         view.evaluateJavascript("pluginFix();", null)
-        view.evaluateJavascript("smoothUpdate();", null)
+        //view.evaluateJavascript("smoothUpdate();", null)
         view.evaluateJavascript("ignoreError();", null)
     }
 
